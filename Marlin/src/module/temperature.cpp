@@ -599,7 +599,7 @@ volatile bool Temperature::raw_temps_ready = false;
       if (cycles > ncycles && cycles > 2) {
         SERIAL_ECHOLNPGM(STR_PID_AUTOTUNE_FINISHED);
 
-        #if HAS_PID_FOR_ALL | HAS_PID_FOR_BOTH
+        #if (HAS_PID_FOR_ALL || HAS_PID_FOR_BOTH)
           const char * const estring = GHV(PSTR("chamber"), PSTR("bed"), NUL_STR);
           say_default_(); serialprintPGM(estring); SERIAL_ECHOLNPAIR("Kp ", tune_pid.Kp);
           say_default_(); serialprintPGM(estring); SERIAL_ECHOLNPAIR("Ki ", tune_pid.Ki);
